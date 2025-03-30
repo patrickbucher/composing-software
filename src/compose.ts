@@ -1,6 +1,6 @@
-function compose<T>(f: (x: T) => T, g: (x: T) => T): (x: T) => T {
-  return (x) => f(g(x));
-}
+const identity = <T>(x: T): T => x;
+
+const compose = <T>(f: (x: T) => T, g: (x: T) => T): (x: T) => T => (x) => f(g(x));
 
 const pipe =
   (...fns) =>
@@ -12,4 +12,4 @@ const trace = (label: string) => (value) => {
   return value;
 };
 
-export { compose, pipe, trace };
+export { identity, compose, pipe, trace };
