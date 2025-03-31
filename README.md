@@ -6,6 +6,8 @@
 - _point free style_: writing functions without mentioning of the arguments
     - This reduces intermediary variables, which frees up the programmer's working memory—and reduces the surface for bugs.
 - _functor_: a container you can `map` over its items
+- _Abstraction_: _Generalization_ (finding similarities) and _Specialization_ (supply the differences)
+- _data last_: take the specializing parameters first and the data parameters last
 
 ## Quotes
 
