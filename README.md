@@ -8,6 +8,10 @@
 - _functor_: a container you can `map` over its items
 - _Abstraction_: _Generalization_ (finding similarities) and _Specialization_ (supply the differences)
 - _data last_: take the specializing parameters first and the data parameters last
+- _functor_: something _mappable_, preserving this property
+- _monad_: something _flat mappable_, preserving this property
+    - Monads are about the composition of _lifting_ functions.
+    - The context, in which the values have been lifted into (e.g. an array) must be unwrapped afterwards, which is done by `flatMap`.
 
 ## Quotes
 
