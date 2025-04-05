@@ -12,7 +12,7 @@ const debugLowerTrim = pipe(
   lower,
   trace("after lower"),
   trim,
-  trace("after trim")
+  trace("after trim"),
 );
 const result = debugLowerTrim(" FOO ");
 console.log(result);

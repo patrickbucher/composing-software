@@ -10,9 +10,11 @@ const pipe =
   (x: T) =>
     fns.reduce((y, f) => f(y), x);
 
-const trace = <T>(label: string) => (value: T) => {
-  console.log(`${label}: ${value}`);
-  return value;
-};
+const trace =
+  <T>(label: string) =>
+  (value: T) => {
+    console.log(`${label}: ${value}`);
+    return value;
+  };
 
 export { identity, compose, pipe, trace };
