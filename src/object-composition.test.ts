@@ -1,4 +1,4 @@
-import { assign, collect } from "./object-composition";
+import { assign, collect, pair } from "./object-composition";
 
 const name = {
   firstName: "Patrick",
@@ -28,4 +28,12 @@ test("collection", () => {
   expect(collected).toContain(name);
   expect(collected).toContain(address);
   expect(collected).toContain(contact);
+});
+
+test("list aggregation", () => {
+  const listed = [name, address, contact].reduceRight(pair, []);
+  // car: [0], cdr: [1]
+  expect(listed[0]).toBe(name);
+  expect(listed[1][0]).toBe(address);
+  expect(listed[1][1][0]).toBe(contact);
 });
