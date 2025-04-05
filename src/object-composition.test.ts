@@ -1,4 +1,4 @@
-import { assign, collect, pair } from "./object-composition";
+import { assign, collect, delegate, pair } from "./object-composition";
 
 const name = {
   firstName: "Patrick",
@@ -30,10 +30,18 @@ test("collection", () => {
   expect(collected).toContain(contact);
 });
 
-test("list aggregation", () => {
+test("list aggregation (cons list)", () => {
   const listed = [name, address, contact].reduceRight(pair, []);
   // car: [0], cdr: [1]
   expect(listed[0]).toBe(name);
   expect(listed[1][0]).toBe(address);
   expect(listed[1][1][0]).toBe(contact);
+});
+
+test("delegation (prototype chaining)", () => {
+  const delegated = [name, address, contact].reduceRight(delegate, {});
+  console.log(delegated);
+  expect(delegated.firstName).toBe("Patrick");
+  expect(delegated.zipCode).toBe(6210);
+  expect(delegated.github).toBe("patrickbucher");
 });
